@@ -7,7 +7,6 @@ import * as RxRouter from 'koa-rx-router'
 import {createLocalProxy} from 'uservices-socket.io-server'
 import {createAdminClient} from 'ml-admin'
 import {Client} from 'marklogic'
-import * as ts from 'typescript-schema'
 import * as fs from 'fs'
 
 let koa = require('koa')
