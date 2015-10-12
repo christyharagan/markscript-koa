@@ -1,14 +1,11 @@
 {
     "compilerOptions": {
-        "emitDecoratorMetadata": true,
-        "declaration": true,
+        "target": "es5",
         "module": "commonjs",
-        "noImplicitAny": false,
-        "noLib": false,
+        "declaration": true,
         "rootDir": "./src",
         "sourceMap": true,
         "sourceRoot": ".",
-        "target": "es5",
         "outDir": ".",
         "moduleResolution": "node"
     },
@@ -16,22 +13,13 @@
         "indentSize": 2,
         "tabSize": 2
     },
-    "filesGlob": [
-        "./src/**/*.ts",
-        "./typings/**/*.d.ts",
-        "./node_modules/ml-typescript-definitions/*.d.ts"
-    ],
     "compileOnSave": true,
-    "files": [
-        "./src/lib/index.ts",
-        "./src/lib/server.ts",
-        "./typings/es6/es6.d.ts",
-        "./typings/node/node.d.ts",
-        "./typings/rx/rx-lite.d.ts",
-        "./typings/rx/rx.d.ts",
-        "./typings/socket.io/socket.io.d.ts",
-        "./typings/tsd.d.ts",
-        "./node_modules/ml-typescript-definitions/client.d.ts",
-        "./node_modules/ml-typescript-definitions/server.d.ts"
+    "exclude": [
+        "node_modules/marklogic-node-typescript-definitions/typings",
+        "node_modules/koa-rx-router",
+        "node_modules/markscript-core",
+        "node_modules/markscript-uservices",
+        "node_modules/uservices",
+        "node_modules/uservices-socket.io-server"
     ]
 }
