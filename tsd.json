@@ -5,11 +5,11 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "socket.io/socket.io.d.ts": {
-      "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
-    },
     "node/node.d.ts": {
-      "commit": "d6c98baa7fd703e449cf37f3ec39ed3bd92cfd35"
+      "commit": "b27d0d0e1ce4207a7a5b1da847cb776c16d7531e"
+    },
+    "socket.io/socket.io.d.ts": {
+      "commit": "b27d0d0e1ce4207a7a5b1da847cb776c16d7531e"
     }
   }
 }
