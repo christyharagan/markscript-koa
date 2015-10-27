@@ -15,7 +15,7 @@ export interface KoaBuildConfig {
   fileServerPath?: string
 }
 
-export class Server extends b.Runtime implements mu.UServicesRuntime {
+export class Runtime extends b.Runtime implements mu.UServicesRuntime {
   buildModel: MarkScript.BuildModel&mu.UServicesBuildModel
   buildConfig: MarkScript.BuildConfig&mu.UServicesBuildConfig&KoaBuildConfig
   private services: { [name: string]: any } = {}
@@ -27,13 +27,15 @@ export class Server extends b.Runtime implements mu.UServicesRuntime {
 
   constructor(buildModel: MarkScript.BuildModel&mu.UServicesBuildModel, buildConfig: MarkScript.BuildConfig&mu.UServicesBuildConfig&KoaBuildConfig) {
     super(buildModel, buildConfig)
+    this.buildModel = buildModel
+    this.buildConfig = buildConfig
   }
 
   stop() {
     this.httpServer.close()
   }
 
-  start(): Promise<Server> {
+  start(): Promise<Runtime> {
     let self = this
     return new Promise(function(resolve, reject) {
       let app = koa()
@@ -52,13 +54,15 @@ export class Server extends b.Runtime implements mu.UServicesRuntime {
 
       let client = self.getClient()
 
-      u.visitServices(self.buildModel.serviceSpecs, {
-        onService: function(service) {
-          let proxy = mu.createRemoteProxy(service, client, router)
-          self.services[service.name] = proxy
-          createLocalProxy(ioServer, service, proxy)
-        }
-      })
+      if (self.buildModel.serviceSpecs) {
+        u.visitServices(self.buildModel.serviceSpecs, {
+          onService: function(service) {
+            let proxy = mu.createRemoteProxy(service, client, router)
+            self.services[service.name] = proxy
+            createLocalProxy(ioServer, service, proxy)
+          }
+        })
+      }
 
       self.httpServer = httpServer
       httpServer.listen(self.buildConfig.middle.port, self.buildConfig.middle.host, function(err) {

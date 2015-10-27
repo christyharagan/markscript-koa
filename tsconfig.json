@@ -19,17 +19,19 @@
         "build.d.ts",
         "typings/**/*.d.ts",
         "node_modules/markscript-core/build.d.ts",
+        "node_modules/marklogic-typescript-definitions/ts/index.d.ts",
         "node_modules/marklogic-node-typescript-definitions/ts/index.d.ts"
     ],
     "files": [
         "src/lib/index.ts",
-        "src/lib/server.ts",
+        "src/lib/runtime.ts",
         "build.d.ts",
         "typings/node/node.d.ts",
         "typings/promise/promise.d.ts",
         "typings/socket.io/socket.io.d.ts",
         "typings/tsd.d.ts",
         "node_modules/markscript-core/build.d.ts",
+        "node_modules/marklogic-typescript-definitions/ts/index.d.ts",
         "node_modules/marklogic-node-typescript-definitions/ts/index.d.ts"
     ],
     "exclude": []
