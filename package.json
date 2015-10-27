@@ -1,6 +1,6 @@
 {
   "name": "markscript-koa",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Provides an easy to use, already configured, koa server for MarkScript projects",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -19,7 +19,7 @@
   "dependencies": {
     "koa": "^1.1.0",
     "koa-cors": "^0.0.16",
-    "koa-rx-router": "^0.2.0",
+    "koa-rx-router": "^0.3.1",
     "koa-static": "^1.5.1",
     "marklogic": "1.0.3",
     "marklogic-node-typescript-definitions": "^0.1.0",
